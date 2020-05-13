@@ -35,4 +35,4 @@ class Perceptron():
 
 	def predict(self, X):
 		y_pred = self.activ_func(X.dot(self.W) + self.b)
-        return (y_pred)
+        	return (y_pred)
