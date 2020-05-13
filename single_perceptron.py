@@ -1,4 +1,7 @@
 from __future__ import print_function, division
+from utils.loss import *
+from utils.activation_function import *
+from utils.operations import *
 import numpy as np
 import math
 
@@ -16,8 +19,8 @@ class Perceptron():
 		_, n_outputs = y.shape
 
 		# Weight initialization
-        self.W = np.random.uniform((-1.0/ math.sqrt(n_features)), (1.0/math.sqrt(n_features)), (n_features, n_outputs))
-        self.b = np.zeros((1, n_outputs))
+        	self.W = np.random.uniform((-1.0/ math.sqrt(n_features)), (1.0/math.sqrt(n_features)), (n_features, n_outputs))
+        	self.b = np.zeros((1, n_outputs))
 
         for i in range(self.n_iter):
         	linear_output = X.dot(self.W) + self.b
@@ -25,10 +28,10 @@ class Perceptron():
         	# Error gradient wrt the inputs of the activation function
         	error_grad = self.loss.gradient(y, y_pred) * self.activ_func.gradient(linear_output)
         	grad_wrt_W = X.T.dot(error_grad)
-            grad_wrt_b = np.sum(error_grad, axis=0, keepdims=True)
-            # Update
-            self.W  -= self.learning_rate * grad_wrt_W
-            self.b -= self.learning_rate  * grad_wrt_b
+            	grad_wrt_b = np.sum(error_grad, axis=0, keepdims=True)
+            	# Update
+            	self.W  -= self.learning_rate * grad_wrt_W
+            	self.b -= self.learning_rate  * grad_wrt_b
 
 	def predict(self, X):
 		y_pred = self.activ_func(X.dot(self.W) + self.b)
