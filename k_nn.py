@@ -1,15 +1,7 @@
 from __future__ import print_function, division
+from utils.operations import euclidean_distance
 import numpy as np
 import math
-
-
-def euclidean_distance(x1, x2):
-	''' Compute the euclidean (L2) distance between two vectors '''
-	assert (len(x1) == len(x2)), 'Dimensions do not match'
-	dist = 0
-	for i in range(len(x1)) :
-		dist += pow((x1[i] - x2[i]), 2)
-	return (math.sqrt(dist))
 
 class kNN():
 
