@@ -22,7 +22,7 @@ class Perceptron():
         	self.W = np.random.uniform((-1.0/ math.sqrt(n_features)), (1.0/math.sqrt(n_features)), (n_features, n_outputs))
         	self.b = np.zeros((1, n_outputs))
 
-        for i in range(self.n_iter):
+        	for i in range(self.n_iter):
         	linear_output = X.dot(self.W) + self.b
         	y_pred = self.activ_func(linear_output)
         	# Error gradient wrt the inputs of the activation function
